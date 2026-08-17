@@ -22,7 +22,7 @@ function App() {
 
                 <Route element={ <ProtectedRoute> <Layout /> </ProtectedRoute>}>
                   <Route path="/products" element={<Products />} />
-                  <Route path="/customers" element={<Customers />} />
+                  <Route path="/customers" element={ <ProtectedRoute roles={['admin', 'comercial', 'almacen']}> <Customers /> </ProtectedRoute> } />
                   <Route path="/orders" element={<Orders />} />
                   <Route path="/orders/new" element={<CreateOrder />} />
                 </Route>

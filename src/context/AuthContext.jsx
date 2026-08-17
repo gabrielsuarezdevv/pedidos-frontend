@@ -38,9 +38,14 @@ export function AuthProvider({ children }) {
         setUser(null);
     };
 
+    // Function to check if the user has a specific role
+    const hasRole = (role) => {
+        return user?.roles?.some((r) => r.name === role) ?? false;
+    };
+
     // Provide the authentication state and functions to child components
     return (
-        <AuthContext.Provider value={{ user, loading, login, register, logout }}>
+        <AuthContext.Provider value={{ user, loading, login, register, logout, hasRole }}>
             {children}
         </AuthContext.Provider>
     );

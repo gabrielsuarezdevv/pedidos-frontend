@@ -2,7 +2,7 @@ import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function Layout() {
-    const { user, logout } = useAuth();
+    const { user, logout, hasRole } = useAuth();
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -15,7 +15,7 @@ export default function Layout() {
             <header>
                 <nav>
                     <Link to="/products">Productos</Link>
-                    <Link to="/customers">Clientes</Link>
+                    {!hasRole('cliente') && <Link to="/customers">Clientes</Link>}
                     <Link to="/orders">Pedidos</Link>
                 </nav>
                 <div>
