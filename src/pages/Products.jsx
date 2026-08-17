@@ -18,11 +18,6 @@ export default function Products() {
 
     return (
         <div>
-            <header>
-                <p>Hola, {user?.name}</p>
-                <button onClick={logout}>Cerrar sesión</button>
-            </header>
-
             <h1>Productos</h1>
             <ul>
                 {products.map((product) => (

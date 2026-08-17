@@ -8,16 +8,20 @@ import Login from './pages/Login';
 import Products from './pages/Products';
 import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/Register';
-
-
+import Layout from './components/Layout';
+import Customers from './pages/Customers';
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/login" element={<Login />} />
-                <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
                 <Route path="/register" element={<Register />} />
+
+                <Route element={ <ProtectedRoute> <Layout /> </ProtectedRoute>}>
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/customers" element={<Customers />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     );
