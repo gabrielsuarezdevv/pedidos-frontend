@@ -10,6 +10,7 @@ export default function Register() {
         email: '',
         password: '',
         password_confirmation: '',
+        tax_id: '',
     });
     const [errors, setErrors] = useState({});
     const [generalError, setGeneralError] = useState(null);
@@ -54,6 +55,19 @@ export default function Register() {
                         aria-describedby={errors.name ? 'name-error' : undefined}
                     />
                     {errors.name && <p id="name-error" role="alert" style={{ color: 'red' }}>{errors.name[0]}</p>}
+                </div>
+
+                <div>
+                    <label htmlFor="tax_id">CIF de tu empresa</label>
+                    <input
+                        id="tax_id"
+                        name="tax_id"
+                        value={form.tax_id}
+                        onChange={handleChange}
+                        aria-invalid={!!errors.tax_id}
+                        aria-describedby={errors.tax_id ? 'tax_id-error' : undefined}
+                    />
+                    {errors.tax_id && <p id="tax_id-error" role="alert" style={{ color: 'red' }}>{errors.tax_id[0]}</p>}
                 </div>
 
                 <div>

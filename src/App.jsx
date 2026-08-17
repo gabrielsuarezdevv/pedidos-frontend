@@ -10,6 +10,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/Register';
 import Layout from './components/Layout';
 import Customers from './pages/Customers';
+import Orders from './pages/Orders';
+import CreateOrder from './pages/CreateOrder';
 
 function App() {
     return (
@@ -21,6 +23,8 @@ function App() {
                 <Route element={ <ProtectedRoute> <Layout /> </ProtectedRoute>}>
                   <Route path="/products" element={<Products />} />
                   <Route path="/customers" element={<Customers />} />
+                  <Route path="/orders" element={<Orders />} />
+                  <Route path="/orders/new" element={<CreateOrder />} />
                 </Route>
             </Routes>
         </BrowserRouter>
